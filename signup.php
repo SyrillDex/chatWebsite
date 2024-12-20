@@ -29,6 +29,7 @@
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = trim(filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS));
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $age = $_POST["age"];
 
     $sql = "SELECT username FROM users WHERE username = ?";
@@ -46,7 +47,7 @@
     } elseif($result->num_rows > 0){
       echo "Username already taken"; 
     } else{
-      $sql = "INSERT INTO users(username, password, age) VALUES ('$username','$password','$age')";
+      $sql = "INSERT INTO users(username, password, age) VALUES ('$username','$hashed_password','$age')";
       
       try{
         mysqli_query($conn, $sql);
