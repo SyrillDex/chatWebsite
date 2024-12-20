@@ -1,17 +1,15 @@
 <?php
-  include("connection/database.php");
-
-  if(!isset($_SESSION)){
-    session_start();
-  }
+  require "connection/database.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat Now!</title>
 </head>
+
 <body>
   <div class="login-form">
     <form action="index.php" method="post">
@@ -22,4 +20,36 @@
     </form>
   </div>
 </body>
+
 </html>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+  $password = $_POST['password'];
+
+  $sql = "SELECT * FROM users WHERE username = ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("s", $username);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $stored_hashed_password = $row['password'];
+
+    if (password_verify($password, $stored_hashed_password)) {
+      session_start();
+      $_SESSION['username'] = $row['username'];
+      $_SESSION['user_id'] = $row['id'];
+      header("Location: home.php");
+    } else {
+      echo "Wrong password";
+    }
+  } else {
+    echo "Username not found";
+  }
+  $stmt->close();
+  $conn->close();
+}
+?>
