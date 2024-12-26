@@ -1,0 +1,51 @@
+.app-logo{
+  mix-blend-mode: darken;
+  position: absolute;
+  top: -8px;
+  left: 10px;
+}
+.signup-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+h2{
+  margin-bottom: 4px;
+}
+p{
+  font-size: 0.8rem;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.signup-form p:nth-child(2){
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.386);
+}
+.signup-with{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup-with img{
+  width: 30px;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0px;
+}
+.logo{
+  display: flex;
+  gap: 20px;  
+  margin-bottom: 10px;
+}
+input[type="submit"]{
+  margin-bottom: 15px;
+}
+.prompt{
+  margin-bottom: 5px;
+  color: red;
+  display: none;
+  font-size: .7rem;
+}
