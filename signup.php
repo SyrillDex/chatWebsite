@@ -11,7 +11,7 @@
 <body>
   <div class="signup-form">
     <form action="signup.php" method="post">
-      <input type="text" name="username" placeholder="Username">
+      <input type="text" name="username" placeholder="Username" autocomplete="off">
       <input type="password" name="password" placeholder="Password">
       <input type="number" name="age">
       <input type="submit" name="signup" value="Sign up">

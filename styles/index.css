@@ -1,0 +1,100 @@
+body{
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  font-family: Montserrat, Arial;
+  color: #031716;
+  background-color: #274d60;
+}
+.app-logo{
+  mix-blend-mode: darken;
+  position: absolute;
+  top: -8px;
+  right: 10px;
+}
+.app-logo img{
+  width: 85px;
+}
+.container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 40px;
+  width: 70%;
+  gap: 60px;
+  background-color: #f2f2f2;
+  position: relative;
+}
+.image-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-div img{
+  object-fit: cover;
+  border-radius: 40px;
+  height: 540px;
+}
+.login-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+h2{
+  margin-bottom: 5px;
+}
+p{
+  font-size: 0.8rem;
+  margin-bottom: 30px;
+}
+.login-form p:first-of-type{
+  margin-bottom: 60px;
+}
+input[type="text"],
+input[type="password"]{
+  border-radius: 10px;
+  padding: 15px;
+  width: 50%;
+  border: none;
+  margin-bottom: 15px;
+  box-shadow: -5px 3px 10px 0.1px rgba(0, 0, 0, 0.311);
+}
+input[type="text"]:focus,
+input[type="password"]:focus{
+  outline: none;
+}
+input[type="submit"]{
+  background-color: #274d60;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  width: 55%;
+  box-shadow: -5px 3px 10px 0.1px rgba(0, 0, 0, 0.311);
+  cursor: pointer;
+}
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;  
+}
+.logo img{
+  width: 30px;
+  cursor: pointer;
+  background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+.prompt{
+  margin-bottom: 10px;
+  color: red;
+  display: none;
+}
