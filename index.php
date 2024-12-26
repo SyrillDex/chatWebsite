@@ -1,5 +1,8 @@
 <?php
   require "connection/database.php";
+
+  (!isset($_POST["username"])) ? $username = "" : $username = $_POST["username"];
+  (!isset($_POST["password"])) ? $password = "" : $password = $_POST["password"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +30,8 @@
       <h2>Welcome back!</h2>
       <p>Hello, you've been missed!</p>
       <p class="prompt">Invalid username / password</p>
-      <input type="text" name="username" placeholder="Username" autocomplete="off">
-      <input type="password" name="password" placeholder="Password">
+      <input type="text" name="username" placeholder="Username" autocomplete="off" value="<?= $username ?>">
+      <input type="password" name="password" placeholder="Password" value="<?= $password ?>">
       <p>Don't have an account? <a href="signup.php">Sign up</a></p>
       <input type="submit" name="login" value="Log in">
       <p>or continue with</p>
