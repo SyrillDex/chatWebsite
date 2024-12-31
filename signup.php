@@ -24,7 +24,7 @@
       <img src="images/logo.png" alt="Chat Now">
     </div>
     <form action="signup.php" method="post" class="signup-form">
-      <h2>Sign up now</h2>
+      <h2>Sign up now!</h2>
       <p>Create a free account</p>
       <div class="signup-with">
         <p>Sign up with</p>

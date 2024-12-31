@@ -32,8 +32,7 @@ p{
 .signup-with img{
   width: 30px;
   cursor: pointer;
-  background-color: transparent;
-  padding: 0px;
+  padding: 5px;
 }
 .logo{
   display: flex;
