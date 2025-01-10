@@ -1,5 +1,6 @@
 <?php
   require "connection/database.php";
+  $conn = connection();
 
   (!isset($_POST["username"])) ? $username = "" : $username = $_POST["username"];
   (!isset($_POST["password"])) ? $password = "" : $password = $_POST["password"];
@@ -85,7 +86,16 @@
             
             try {
                 $stmt->execute();
-                echo "Registration successful!";
+                $sql = "SELECT * FROM users WHERE username = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("s", $username);
+                $stmt->execute();
+                $result = $stmt->get_result();  
+                $row = $result->fetch_assoc();  
+                session_start();
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['user_id'] = $row['id'];
+                header("Location: add-info.php");
             } catch (mysqli_sql_exception $e) {
                 echo "Something went wrong: " . $e->getMessage();
             }
