@@ -10,8 +10,8 @@
     try {
       $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name, $db_port);
       return $conn;
-    } catch (mysqli_sql_exception){
-      echo "Something went wrong";
+    } catch (mysqli_sql_exception $e){
+      echo "Something went wrong" . $e->getMessage();
     }
   }
 
