@@ -1,6 +1,7 @@
 <?php
   require "connection/database.php";
-
+  $conn = connection();
+  
   (!isset($_POST["username"])) ? $username = "" : $username = $_POST["username"];
   (!isset($_POST["password"])) ? $password = "" : $password = $_POST["password"];
 ?>
