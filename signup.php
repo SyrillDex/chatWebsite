@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="styles/index.css">
   <link rel="stylesheet" href="styles/signup.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-  <title>Chat Now!</title>
+  <title>Chat Now! (Sign Up)</title>
 </head>
 <body>
   <div class="container">

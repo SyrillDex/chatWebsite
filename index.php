@@ -1,7 +1,7 @@
 <?php
   require "connection/database.php";
   $conn = connection();
-  
+
   (!isset($_POST["username"])) ? $username = "" : $username = $_POST["username"];
   (!isset($_POST["password"])) ? $password = "" : $password = $_POST["password"];
 ?>
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles/index.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-  <title>Chat Now!</title>
+  <title>Chat Now! (Log In)</title>
 </head>
 
 <body>
