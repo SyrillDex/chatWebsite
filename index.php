@@ -59,9 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->bind_param("s", $username);
   $stmt->execute();
   $result = $stmt->get_result();
+  $row = $result->fetch_assoc();
 
-  if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
+  if ($row['username'] === $username) {
     $stored_hashed_password = $row['password'];
 
     if (password_verify($password, $stored_hashed_password)) {
