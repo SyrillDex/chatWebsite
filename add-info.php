@@ -66,7 +66,7 @@
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("isssi", $age, $birthDate, $phoneNumber, $email, $id);
         $stmt->execute();
-        header("Location: home.php");
+        header("Location: chats.php");
       }
     }
   }

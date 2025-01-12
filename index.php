@@ -61,14 +61,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $result = $stmt->get_result();
   $row = $result->fetch_assoc();
 
-  if ($row['username'] === $username) {
+  if ($row) {
     $stored_hashed_password = $row['password'];
 
     if (password_verify($password, $stored_hashed_password)) {
       session_start();
       $_SESSION['username'] = $row['username'];
       $_SESSION['user_id'] = $row['id'];
-      header("Location: home.php");
+      header("Location: chats.php");
+      exit();
     } else { ?>
       <script>showPrompt();</script>
     <?php }

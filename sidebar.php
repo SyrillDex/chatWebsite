@@ -16,22 +16,57 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles/sidebar.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-  <title>Chat Now! (Home)</title>
+  <title>Chat Now! (Chats)</title>
 </head>
 <body>
   <nav class="nav-bar">
-    <div class="app-logo">
-      <img src="images/logo-blue.png" alt="Chat Now">
-    </div>
+   
     <div class="nav-links">
-      <a href="home.php" id="chats"><i class="fa-solid fa-comments"></i></a>
-      <a href="friends.php" id="friends"><i class="fa-solid fa-user-group"></i></a>
-      <a href="archive.php" id="archive"><i class="fa-solid fa-box-archive"></i></a>
+      <div class="app-logo">
+        <img src="images/logo-blue.png" alt="Chat Now">
+      </div>
+      <a href="chats.php" class="active"><i class="fa-solid fa-comments"></i></a>
+      <a href="#"><i class="fa-solid fa-user-group"></i></a>
+      <a href="#" ><i class="fa-solid fa-box-archive"></i></a>
     </div>
     <div class="user-icon">
-      <img src="images/man-avatar.png" alt="user">
+      <img class="user" src="images/man-avatar.png" alt="user">
     </div>
   </nav>
+  <div class="options">
+    <div>
+      <i class="fa-solid fa-user-gear"></i>
+      <a href="account-settings.php">Account settings</a>
+    </div>
+    <div>
+      <i class="fa-solid fa-gear"></i>
+      <a href="#">Preferences</a>
+    </div>
+    <div>
+      <i class="fa-solid fa-shield-halved"></i>
+      <a href="#">Privacy & safety</a>
+    </div>
+    <div>
+      <i class="fa-solid fa-circle-question"></i> 
+      <a href="#">Help</a>
+    </div>
+    <div>
+      <i class="fa-solid fa-bug"></i>
+      <a href="#">Report a problem</a>
+    </div>
+    <div>
+      <i class="fa-solid fa-scroll"></i>
+      <a href="#">Terms</a>
+    </div>
+    <div>
+      <i class="fa fa-cookie"></i>
+      <a href="#">Cookie policy</a>
+    </div>
+    <div>
+      <i class="fa-solid fa-right-from-bracket"></i>
+      <a href="logout.php">Log out</a>
+    </div>
+  </div>
   <script src="script/sidebar.js"></script>
 </body>
 </html>
