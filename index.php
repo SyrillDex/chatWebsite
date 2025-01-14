@@ -62,20 +62,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $row = $result->fetch_assoc();
 
   if ($row) {
-    $stored_hashed_password = $row['password'];
+    if(strcmp($row['username'], $username) === 0){
+      $stored_hashed_password = $row['password'];
 
-    if (password_verify($password, $stored_hashed_password)) {
-      session_start();
-      $_SESSION['username'] = $row['username'];
-      $_SESSION['user_id'] = $row['id'];
-      header("Location: chats.php");
-      exit();
-    } else { ?>
-      <script>showPrompt();</script>
-    <?php }
-  } else { ?>
-    <script>showPrompt();</script>
-  <?php }
+      if (password_verify($password, $stored_hashed_password)) {
+        session_start();
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['user_id'] = $row['id'];
+        header("Location: chats.php");
+        exit();
+      } else { ?> <script>showPrompt();</script> <?php }
+    } else { ?> <script>showPrompt();</script> <?php }
+  } else { ?> <script>showPrompt();</script> <?php }
   $stmt->close();
   $conn->close();
 }
