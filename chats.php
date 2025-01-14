@@ -32,13 +32,14 @@
           <h2>Chats</h2>
           <i class="fa-regular fa-pen-to-square"></i>
         </div>
-        <div class="search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" name="search" placeholder="Search chats">
+        <div  class="search">
+          <form action="chats.php" method="post" class="search-form">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" name="search-text" placeholder="Search chats" class="search-text"  autocomplete="off">
+          </form>
         </div>
       </div>
       <div class="chat-list">
-        
       </div>
     </div>
     <div class="conversation">
@@ -77,13 +78,40 @@
 </html>
 <?php
   if($_SERVER['REQUEST_METHOD'] === "POST"){
-    $message = $_POST["message"];
     if(isset($_POST['send'])){
+      $message = $_POST["message"];
       ?> 
         <script>
           sendMessage(<?php echo json_encode($message); ?>);
         </script>
       <?php
+    }
+
+    if(isset($_POST['search-text'])){
+      $searchInput = trim($_POST['search-text']);
+      $searchParam = "%" . $searchInput . "%";
+
+      $sql = "SELECT username FROM users WHERE username LIKE ?";
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param("s", $searchParam);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      
+      if ($searchInput != "" && $result->num_rows > 0){
+        while ($row = $result->fetch_assoc()){
+          ?>
+          <script>
+            searchResult(<?php echo json_encode($row['username']); ?>);
+          </script>
+          <?php
+        }
+      } else{
+        ?>
+          <script>
+            searchResult(<?php echo json_encode("No results found"); ?>);
+          </script>
+          <?php
+      }
     }
   }
 ?>

@@ -132,3 +132,6 @@ input[type="text"]::placeholder{
 .message-box{
   padding: 12px 10px;
 }
+.search-form{
+  display: flex;
+}
