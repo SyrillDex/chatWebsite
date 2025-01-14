@@ -2,10 +2,14 @@
   include "sidebar.php";
   require "connection/database.php";
   $conn = connection();
+  $id = $_SESSION['user_id'];
 
   if(empty($_SESSION['user_id'])){
     header("Location: index.php");
   }
+  $sql = "SELECT * FROM users";
+  $result = $conn->query($sql) or die($conn->error);
+  $row = $result->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +37,9 @@
           <input type="text" name="search" placeholder="Search chats">
         </div>
       </div>
+      <div class="chat-list">
+        
+      </div>
     </div>
     <div class="conversation">
       <div class="convo-header">
@@ -41,16 +48,43 @@
             <img class="receiver-profile" src="images/man-avatar.png" alt="">
             <h2><?php echo $_SESSION['username'] ?></h2>
           </div>
-          <div>
+          <div class="receiver-nav">
             <i class="fa-solid fa-phone"></i>
             <i class="fa-solid fa-video"></i>
             <i class="fa-solid fa-circle-info"></i>
           </div>
         </div>
       </div>
+      <div class="convo-body">
+        
+      </div>
+      <div class="convo-footer">
+        <a href=""><i class="fas fa-plus"></i></a>
+        <a href=""><i class="fas fa-image"></i></a>
+        <a href=""><i class="fas fa-file"></i></a>
+        <form action="chats.php" method="post" class="message-form">
+          <div class="message-box">
+            <input type="text" name="message" id="text-box" placeholder="Send a message" autocomplete="off">
+            <a href=""><i class="fas fa-smile"></i></a>
+          </div>
+          <input type="submit" name="send" class="fa send" value="&#xf1d8">
+        </form>
+      </div>
     </div>
   </div>
-  
+  <script src="script/chats.js"></script>
 </body>
 </html>
+<?php
+  if($_SERVER['REQUEST_METHOD'] === "POST"){
+    $message = $_POST["message"];
+    if(isset($_POST['send'])){
+      ?> 
+        <script>
+          sendMessage(<?php echo json_encode($message); ?>);
+        </script>
+      <?php
+    }
+  }
+?>
 
