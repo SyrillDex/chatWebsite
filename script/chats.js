@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 });
 
 
-function searchResult(username){
+function searchResult(username, pic){
   const chatList = document.querySelector('.chat-list');
 
   if(chatList){
@@ -26,5 +26,11 @@ function searchResult(username){
     userItem.className = 'user-item';
     userItem.textContent = username;
     chatList.appendChild(userItem);
+    // if(userItem){
+    //   const userPic = document.createElement('div');
+    //   userPic.className = 'user-pic';
+    //   userPic.textContent = pic;
+    //   chatList.appendChild(userPic);
+    // }
   }
 }
